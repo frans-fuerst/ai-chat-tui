@@ -6,10 +6,11 @@ from contextlib import suppress
 
 import httpx
 import yaml
+from rich import print as rich_print
 
 
 async def get_answer(messages: list[dict[str, str]]) -> str:
-    url = "http://127.0.0.1:8000/v1/chat/completions"
+    url = "http://127.0.0.1:9000/v1/chat/completions"
     data = {
         "stream": True,
         "messages": messages,
@@ -42,26 +43,36 @@ async def get_answer(messages: list[dict[str, str]]) -> str:
 
 
 async def discussion() -> None:
+    system = (
+        "You are an intelligent constructively thinking, wise nerd."
+        " You're interested in physics, metaphysics, meaning of life."
+        " You think twice and your answer is short and concise."
+    )
     history = [
-        "Hallo mein Freund, lass uns mal philophisch werden und über die wichtigen Dinge im Leben reden"
+        "Lass uns über das wichtigste reden, was es deiner Meinung nach im Leben gibt."
     ]
+    print("\033[1;34m")
     print(history[0])
     while True:
+        print("\033[0m")
         input()
-        print(
+        rich_print(
             f"\n\n=== {'Second' if len(history) % 2 else 'First'} ({len(history)}) =====\n"
         )
-        print("[bold green]" if len(history) % 2 else "[bold blue]")
+        rich_print("\033[1;32;3m" if len(history) % 2 else "\033[1;34m")
         history.append(
             await get_answer(
                 [
-                    {
-                        "role": "user"
-                        if (i + len(history)) % 2
-                        else "assistant",
-                        "content": m,
-                    }
-                    for i, m in enumerate(history)
+                    {"role": "system", "content": system},
+                    *(
+                        {
+                            "role": "user"
+                            if (i + len(history)) % 2
+                            else "assistant",
+                            "content": m,
+                        }
+                        for i, m in enumerate(history)
+                    ),
                 ]
             )
         )

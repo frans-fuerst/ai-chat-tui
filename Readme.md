@@ -12,6 +12,11 @@ uv sync
 uv run chat
 ```
 
+To let the bot talk to itself run
+```
+uv run discussion
+```
+
 
 ## License
 
@@ -47,3 +52,4 @@ uv run pre-commit run --hook-stage pre-commit --all-files
 ## External Sources
 
 * TBD
+* [LLaMAfiler Chat Completions Endpoint](https://github.com/mozilla-ai/llamafile/blob/main/llamafile/server/doc/v1_chat_completions.md)
