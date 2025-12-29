@@ -1,0 +1,11 @@
+*~
+~*
+.*.swp
+*.wpu
+__pycache__/
+.mypy_cache/
+.ruff_cache/
+.venv/
+/dist/
+/build/
+_UNTRACKED/

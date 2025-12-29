@@ -1,0 +1,25 @@
+Screen {
+    background: $panel;
+}
+
+Input#prompt-input {
+    dock: top;
+    margin: 1 0;
+}
+
+#conversation {
+    width: 100%;
+    height: auto;
+}
+
+#conversation-container {
+    background: $surface;
+    margin: 0 0 1 0;
+    height: 100%;
+    overflow: hidden auto;
+    border: tall transparent;
+}
+
+#conversation-container:focus {
+    border: tall $border;
+}
