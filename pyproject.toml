@@ -15,6 +15,7 @@ Repository = "https://github.com/frans-fuerst/ai-chat-tui.git"
 
 [project.scripts]
 chat = 'src.chat:main'
+discussion = 'src.discussion:main'
 
 # see https://docs.astral.sh/uv/concepts/projects/dependencies/
 [dependency-groups]
@@ -89,6 +90,7 @@ ignore = [
     "D102",     # Missing docstring in public method
     "D103",     # Missing docstring in public function
     "RUF012",   # Mutable class attributes should be annotated with `typing.ClassVar`
+    "ANN001",   # Missing type annotation for function argument
 
     # These are ignored on purpose
     "COM812",   # missing-trailing-comma
@@ -105,5 +107,6 @@ ignore = [
     "EXE001",   # Shebang is present but file is not executable
     "S101",     # Use of `assert` detected
     "SIM117",   # Use single `with`
+    "T201",     # `print` found
     "TRY003",   # Avoid specifying long messages outside the exception class
 ]
