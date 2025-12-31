@@ -3,6 +3,9 @@
 Experimental AI chat TUI to be used with `llama-server` (for now)
 
 
+![ai-chat-tui screenshot](screenshot-chat.png "ai-chat-tui v0.1.0")
+
+
 ## Install and use
 
 ```
@@ -15,6 +18,11 @@ uv run chat
 To let the bot talk to itself run
 ```
 uv run discussion
+```
+
+.. and to record a discussion you could run
+```
+uv run discussion | tee "chat-$(date +'%y%m%d-%H%M%S').md" 
 ```
 
 
@@ -42,14 +50,18 @@ uv run pre-commit run --hook-stage pre-commit --all-files
 
 - [x] Enter 'prompt'
 - [x] Continuation
+- [x] Set initial prompt / chat template
+- [ ] Up/Down: User input history
 - [ ] CTRL-D (clear)
 - [ ] CTRL-C (abort)
 - [ ] Multiline input
 - [ ] Spoiler for parameters (URL, chat parameters, etc.)
-- [ ] Set initial prompt / chat template
 
 
 ## External Sources
 
-* TBD
 * [LLaMAfiler Chat Completions Endpoint](https://github.com/mozilla-ai/llamafile/blob/main/llamafile/server/doc/v1_chat_completions.md)
+
+
+* https://github.com/ggml-org/llama.cpp/discussions/8947
+* https://github.com/abetlen/llama-cpp-python

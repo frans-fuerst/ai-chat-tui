@@ -9,4 +9,6 @@ __pycache__/
 .venv/
 /dist/
 /build/
+/chat*.md
+/chatconfig.yaml
 _UNTRACKED/
